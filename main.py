@@ -1,13 +1,3 @@
-# print("Welcome to the rollercoaster ticket booth you will only be able to ride if you meet the height requirements")
-
-# height = int(input("what is your height in cm? "))
-
-# if height >= 120:
-#     print("You are tall enough to ride the rollercoaster!")
-# else: 
-#     print("Sorry, you do not meet the height requirements to ride the rollercoaster.")
-
-
 print(
     "Welcome to the Theme Park\n"
     "To ride the Roller Coaster you must meet the age and height requirements."
@@ -15,6 +5,7 @@ print(
 
 rider_input_height = int(input("Enter Height in CM: "))
 rider_input_age = int(input("Enter Age: "))
+rider_pics = input("Do you want a picture taken? (yes/no): ").lower()
 
 if rider_input_height >= 120:
 
@@ -22,15 +13,25 @@ if rider_input_height >= 120:
         print("Sorry, you can't ride because you are over 60 years old.")
 
     elif rider_input_age < 12:
-        print("You can ride and you must pay $5.")
+        rider_total = 5
+        print("You can ride and your ticket costs $5.")
 
     elif rider_input_age <= 18:
-        print("You can ride and you must pay $7.")
+        rider_total = 7
+        print("You can ride and your ticket costs $7.")
 
     else:
-        print("You can ride and you must pay $12.")
+        rider_total = 12
+        print("You can ride and your ticket costs $12.")
+
+    
+    if rider_input_age <= 60:
+
+        if rider_pics == "yes":
+            rider_total += 3
+            print("You have opted for a picture. Additional $3 will be charged.")
+
+        print(f"Your total is ${rider_total}")
 
 else:
     print("Sorry, you can't ride. You must be at least 120 CM tall.")
-
-    
