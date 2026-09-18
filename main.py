@@ -1,37 +1,28 @@
-print(
-    "Welcome to the Theme Park\n"
-    "To ride the Roller Coaster you must meet the age and height requirements."
-)
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+bill = 0
 
-rider_input_height = int(input("Enter Height in CM: "))
-rider_input_age = int(input("Enter Age: "))
-rider_pics = input("Do you want a picture taken? (yes/no): ").lower()
-
-if rider_input_height >= 120:
-
-    if rider_input_age > 60:
-        print("Sorry, you can't ride because you are over 60 years old.")
-
-    elif rider_input_age < 12:
-        rider_total = 5
-        print("You can ride and your ticket costs $5.")
-
-    elif rider_input_age <= 18:
-        rider_total = 7
-        print("You can ride and your ticket costs $7.")
-
+if height >= 120:
+    print("You can ride the rollercoaster")
+    age = int(input("What is your age? "))
+    if age <= 12:
+        bill = 5
+        print("Child tickets are $5.")
+    elif age <= 18:
+        bill = 7
+        print("Youth Tickets are $7.")
     else:
-        rider_total = 12
-        print("You can ride and your ticket costs $12.")
+        bill = 12
+        print("Adult Tickets are $12.")
 
-    
-    if rider_input_age <= 60:
 
-        if rider_pics == "yes":
-            rider_total += 3
-            print("You have opted for a picture. Additional $3 will be charged.")
-
-        print(f"Your total is ${rider_total}")
-
+    wants_photo = input("Would you like to see the picture?" "\n" "Type Y for yes and N for no : ").lower()
+    if wants_photo == "y":
+            bill += 3
+            print(f"Your Final Bill is {bill}")
+    else :
+        print(f"Your total bill is {bill}")
 else:
-    print("Sorry, you can't ride. You must be at least 120 CM tall.")
+    print("Sorry you have to grow taller before you can ride.")
+
+
